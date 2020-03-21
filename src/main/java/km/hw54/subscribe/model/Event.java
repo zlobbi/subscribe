@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.UUID;
 
 @Data
-@Document
+@Document(collection = "events")
 public class Event {
     private static Random r = new Random();
         @Id

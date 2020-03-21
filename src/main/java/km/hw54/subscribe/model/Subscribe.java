@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
-@Document
+@Document(collection = "subscribes")
 public class Subscribe {
     @Id
     private String id = UUID.randomUUID().toString();

@@ -1,9 +1,8 @@
 package km.hw54.subscribe.service;
 
 import km.hw54.subscribe.dto.EventDTO;
-import km.hw54.subscribe.model.Subscribe;
+import km.hw54.subscribe.model.Event;
 import km.hw54.subscribe.repository.EventRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
@@ -34,7 +33,8 @@ public class EventService {
     public String subscribeToEvent(String eventId, String userEmail) {
         String msg = "";
         if(isSubscribeable(eventId)) {
-            msg = subscribeService.addSubscribe(eventRepository.findById(eventId).get(), userEmail, LocalDate.now());
+            Event event = eventRepository.findById(eventId).get();
+            msg = subscribeService.addSubscribe(event, userEmail, LocalDate.now());
         } else {
             msg = "you are late event passed";
         }
