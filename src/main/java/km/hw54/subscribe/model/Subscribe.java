@@ -7,12 +7,13 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @Document
 public class Subscribe {
     @Id
-    private String id;
+    private String id = UUID.randomUUID().toString();
     @DBRef
     private Event event;
     @Indexed

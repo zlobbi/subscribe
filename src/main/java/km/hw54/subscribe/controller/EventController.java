@@ -24,8 +24,9 @@ public class EventController {
        return eventService.findAllEvents(pageable);
     }
 
-    @PutMapping("/put/{eventId}")
-    public String subscribeToEvent(@PathVariable("eventId") String eventId) {
-        return eventService.toString();
+    @PutMapping("/{eventId}/{userEmail}")
+    public String subscribeToEvent(@PathVariable("eventId") String eventId,
+                                   @PathVariable("userEmail") String userEmail) {
+        return eventService.subscribeToEvent(eventId, userEmail);
     }
 }
